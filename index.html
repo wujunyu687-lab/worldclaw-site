@@ -3,547 +3,372 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WorldClaw | Project Workspace</title>
+    <title>WorldClaw | Project Page</title>
     <meta
       name="description"
-      content="WorldClaw is a unified project workspace that connects terminal, WeChat, Feishu, TrainBot, EvalBot, PaperSearch, and reporting workflows in one control plane."
+      content="WorldClaw is a project-level workspace for training, evaluation, paper search, and multi-platform bot routing."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./site/styles.css" />
   </head>
   <body>
-    <div class="page-shell">
-      <div class="bg-grid" aria-hidden="true"></div>
-      <div class="bg-orb bg-orb-a" aria-hidden="true"></div>
-      <div class="bg-orb bg-orb-b" aria-hidden="true"></div>
-
-      <header class="site-header">
-        <a class="brand" href="#top" aria-label="WorldClaw home">
-          <span class="brand-mark">WC</span>
-          <span class="brand-copy">
-            <strong>WorldClaw</strong>
-            <small>Project Workspace</small>
-          </span>
-        </a>
-
-        <nav class="site-nav" aria-label="Primary">
-          <a href="#surfaces">Access</a>
-          <a href="#modules">Modules</a>
-          <a href="#routing">Topology</a>
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="wordmark" href="#top">WorldClaw</a>
+        <nav class="topnav" aria-label="Primary">
+          <a href="#abstract">Abstract</a>
+          <a href="#architecture">Architecture</a>
+          <a href="#components">Components</a>
           <a href="#workflow">Workflow</a>
-          <a href="#docs">Docs</a>
+          <a href="#resources">Resources</a>
         </nav>
+      </div>
+    </header>
 
-        <a
-          class="header-link"
-          href="https://github.com/wujunyu687-lab/worldclaw-site"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Site Repo
-        </a>
-      </header>
+    <main id="top">
+      <section class="hero reveal is-visible">
+        <div class="container hero-inner">
+          <p class="hero-kicker">Project Page</p>
+          <h1>WorldClaw</h1>
+          <p class="hero-subtitle">
+            A project-level workspace for training, evaluation, paper search,
+            reporting, and multi-platform bot routing.
+          </p>
 
-      <main id="top">
-        <section class="hero reveal is-visible">
-          <div class="hero-copy">
-            <p class="eyebrow">PROJECT CONTROL PLANE</p>
-            <h1>
-              WorldClaw brings training, evaluation, paper search, and multi-platform
-              bot routing into one project workspace.
-            </h1>
-            <p class="hero-lead">
-              It is not a single training repo, and it is not just a chat shell.
-              WorldClaw is a project-level control plane: terminal, WeChat, and
-              Feishu share one execution layer, while TrainBot, EvalBot,
-              PaperSearch, and Report workflows share the same workspace,
-              runtime, and memory layer. This public site only exposes the
-              project architecture and public-facing overview. The working
-              implementation repository can remain private.
-            </p>
-
-            <div class="hero-actions">
-              <a
-                class="button button-primary"
-                href="https://github.com/wujunyu687-lab/worldclaw-site"
-                target="_blank"
-                rel="noreferrer"
-              >
-                View Public Site Repo
-              </a>
-              <a
-                class="button button-secondary"
-                href="https://github.com/wujunyu687-lab/worldclaw-site/blob/main/README.md"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Open Public README
-              </a>
-              <button
-                class="button button-ghost"
-                type="button"
-                data-copy="https://wujunyu687-lab.github.io/worldclaw-site/"
-              >
-                Copy Site URL
-              </button>
-            </div>
-
-            <div class="hero-metrics" aria-label="Project metrics">
-              <article class="metric-card">
-                <strong>3</strong>
-                <span>Unified entry surfaces: terminal, WeChat, Feishu</span>
-              </article>
-              <article class="metric-card">
-                <strong>5</strong>
-                <span>Core internal web bots working behind one bridge</span>
-              </article>
-              <article class="metric-card">
-                <strong>1</strong>
-                <span>Public overview site, separated from the private implementation repo</span>
-              </article>
-            </div>
+          <div class="hero-tags" aria-label="Project tags">
+            <span>Terminal</span>
+            <span>WeChat</span>
+            <span>Feishu</span>
+            <span>TrainBot</span>
+            <span>EvalBot</span>
+            <span>PaperSearch</span>
+            <span>MetaBot Bridge</span>
           </div>
 
-          <div class="hero-panel">
-            <div class="panel-shell">
-              <div class="panel-strip">
-                <span>Terminal</span>
-                <span>WeChat</span>
-                <span>Feishu</span>
-              </div>
-
-              <div class="routing-frame">
-                <div class="routing-column">
-                  <p class="column-label">Access Layer</p>
-                  <div class="lane-card lane-entry">
-                    <span>bin/worldclaw</span>
-                    <small>Local terminal entry</small>
-                  </div>
-                  <div class="lane-card lane-entry">
-                    <span>metabot / metabot-2</span>
-                    <small>WeChat entry bots</small>
-                  </div>
-                  <div class="lane-card lane-entry">
-                    <span>worldclaw-feishu</span>
-                    <small>Feishu long-connection bot</small>
-                  </div>
-                </div>
-
-                <div class="routing-core">
-                  <div class="core-node">
-                    <p>orchestrator-bot</p>
-                    <small>task routing · planning · aggregation</small>
-                  </div>
-                </div>
-
-                <div class="routing-column">
-                  <p class="column-label">Execution Layer</p>
-                  <div class="lane-card">
-                    <span>train-bot</span>
-                    <small>target · variant · experiment</small>
-                  </div>
-                  <div class="lane-card">
-                    <span>eval-bot</span>
-                    <small>benchmark entry · precheck · compare</small>
-                  </div>
-                  <div class="lane-card">
-                    <span>papersearch-bot</span>
-                    <small>topic search · proceedings crawl</small>
-                  </div>
-                  <div class="lane-card">
-                    <span>report-bot</span>
-                    <small>summary · archive · MetaMemory</small>
-                  </div>
-                </div>
-              </div>
-
-              <div class="panel-footer">
-                <span>runtime/</span>
-                <span>.metamemory/</span>
-                <span>Public overview · private codebase</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="surfaces" class="section reveal">
-          <div class="section-head">
-            <p class="eyebrow">UNIFIED ACCESS</p>
-            <h2>Three access surfaces, one execution layer</h2>
-            <p>
-              Entry bots receive user messages. The actual work is delegated to
-              internal web bots. This keeps platform adaptation separate from
-              training, evaluation, search, and reporting logic.
-            </p>
-          </div>
-
-          <div class="card-grid card-grid-3">
-            <article class="surface-card">
-              <h3>Terminal</h3>
-              <p>
-                `bin/worldclaw` is the direct local interface for development,
-                bot switching, status checks, and session continuation. It
-                prefers existing web instances before starting local ones.
-              </p>
-              <pre class="code-block"><code>/home/hywu/wjy/worldclaw/bin/worldclaw --bot train-bot "List variants for demo-mock"</code></pre>
-            </article>
-
-            <article class="surface-card">
-              <h3>WeChat</h3>
-              <p>
-                `metabot` and `metabot-2` are WeChat entry bots. They do not
-                contain all business logic themselves. They route requests to
-                train, eval, papersearch, and report bots behind the bridge.
-              </p>
-              <pre class="code-block"><code>Call train-bot and run a smoke dry-run for the demo-mock smoke variant</code></pre>
-            </article>
-
-            <article class="surface-card">
-              <h3>Feishu</h3>
-              <p>
-                `worldclaw-feishu` is the Feishu long-connection entry bot. Like
-                the WeChat layer, it is a platform bridge rather than a separate
-                business implementation.
-              </p>
-              <pre class="code-block"><code>Call eval-bot, run a WorldArena precheck, and report missing environments and weights</code></pre>
-            </article>
-          </div>
-        </section>
-
-        <section id="modules" class="section reveal">
-          <div class="section-head">
-            <p class="eyebrow">CAPABILITY LAYERS</p>
-            <h2>This is not a pile of scripts. It is a layered control plane.</h2>
-            <p>
-              WorldClaw separates training control, evaluation control, paper
-              search, and reporting into dedicated modules. Each module keeps
-              its own working directory, docs, and execution constraints, while
-              still being routed through the same orchestrator.
-            </p>
-          </div>
-
-          <div class="module-grid">
-            <article class="module-card accent-copper">
-              <div class="module-topline">
-                <span class="module-tag">trainbot/</span>
-                <span class="module-badge">Control Plane</span>
-              </div>
-              <h3>TrainBot</h3>
-              <p>
-                A general training control layer built around targets, variants,
-                experiments, ledgers, and lineage, without binding the system to
-                a single training repository.
-              </p>
-              <ul class="chip-list" aria-label="TrainBot features">
-                <li>variant registry</li>
-                <li>alias & inheritance</li>
-                <li>smoke-variant</li>
-                <li>resolved-config</li>
-                <li>compare / latest-summary</li>
-              </ul>
-            </article>
-
-            <article class="module-card accent-teal">
-              <div class="module-topline">
-                <span class="module-tag">evalbot/</span>
-                <span class="module-badge">Benchmark Entry</span>
-              </div>
-              <h3>EvalBot</h3>
-              <p>
-                A general evaluation control layer for benchmark entry points,
-                input requirements, environment validation, weight readiness,
-                execution, and result reporting. WorldArena is the first major
-                entry currently wired in.
-              </p>
-              <ul class="chip-list" aria-label="EvalBot features">
-                <li>benchmark registry</li>
-                <li>precheck</li>
-                <li>environment validation</li>
-                <li>weight readiness</li>
-                <li>result location reporting</li>
-              </ul>
-            </article>
-
-            <article class="module-card accent-amber">
-              <div class="module-topline">
-                <span class="module-tag">Paper_searchbot/</span>
-                <span class="module-badge">Research Ops</span>
-              </div>
-              <h3>PaperSearch</h3>
-              <p>
-                Responsible for topic search, conference proceedings crawling,
-                title-and-abstract collection, CSV normalization, and merged
-                research outputs.
-              </p>
-              <ul class="chip-list" aria-label="PaperSearch features">
-                <li>topic search</li>
-                <li>proceedings crawl</li>
-                <li>CSV normalize</li>
-                <li>merge outputs</li>
-                <li>project-ready outputs</li>
-              </ul>
-            </article>
-
-            <article class="module-card accent-slate">
-              <div class="module-topline">
-                <span class="module-tag">metabot/</span>
-                <span class="module-badge">Bridge Layer</span>
-              </div>
-              <h3>MetaBot Bridge</h3>
-              <p>
-                Handles the IM bridge, local API, web UI, message dispatch, and
-                memory service. Business logic is not hard-coded into the
-                platform integration layer.
-              </p>
-              <ul class="chip-list" aria-label="MetaBot features">
-                <li>wechat / feishu</li>
-                <li>terminal API</li>
-                <li>memory service</li>
-                <li>bot registry</li>
-                <li>shared runtime</li>
-              </ul>
-            </article>
-          </div>
-        </section>
-
-        <section id="routing" class="section reveal">
-          <div class="section-head">
-            <p class="eyebrow">BOT TOPOLOGY</p>
-            <h2>Access stays separate from execution, so the system scales cleanly.</h2>
-            <p>
-              Entry bots solve platform access and session intake. Internal web
-              bots handle training, evaluation, paper search, and reporting. The
-              result is more stable than pushing every capability into one
-              chat-facing bot, and much easier to maintain in GitHub.
-            </p>
-          </div>
-
-          <div class="topology-grid">
-            <article class="topology-card">
-              <h3>Platform Entry</h3>
-              <ol class="flow-list">
-                <li><span>01</span><div><strong>Terminal</strong><small>`bin/worldclaw` provides local direct access and bot switching</small></div></li>
-                <li><span>02</span><div><strong>WeChat</strong><small>`metabot` and `metabot-2` receive user requests</small></div></li>
-                <li><span>03</span><div><strong>Feishu</strong><small>`worldclaw-feishu` receives events through long connections</small></div></li>
-              </ol>
-            </article>
-
-            <article class="topology-card emphasis">
-              <h3>Execution Core</h3>
-              <ol class="flow-list">
-                <li><span>01</span><div><strong>orchestrator-bot</strong><small>plans, routes, and aggregates instead of executing every detail itself</small></div></li>
-                <li><span>02</span><div><strong>train-bot</strong><small>target / variant / experiment / ledger / lineage</small></div></li>
-                <li><span>03</span><div><strong>eval-bot</strong><small>benchmark entry, precheck, execution, and compare</small></div></li>
-                <li><span>04</span><div><strong>papersearch-bot / report-bot</strong><small>research collection and project reporting</small></div></li>
-              </ol>
-            </article>
-          </div>
-        </section>
-
-        <section id="workflow" class="section reveal">
-          <div class="section-head">
-            <p class="eyebrow">WORKFLOW</p>
-            <h2>WorldClaw is built to connect the full project loop.</h2>
-            <p>
-              The private implementation may live elsewhere, but the public site
-              still explains the real operational loop instead of collapsing
-              everything into vague marketing copy.
-            </p>
-          </div>
-
-          <div class="workflow-grid">
-            <article class="workflow-step">
-              <span class="step-index">01</span>
-              <h3>Define the target</h3>
-              <p>
-                Describe the training project with TrainBot target, variant, and
-                experiment contracts instead of scattering configuration across
-                prompts and scripts.
-              </p>
-            </article>
-
-            <article class="workflow-step">
-              <span class="step-index">02</span>
-              <h3>Run training</h3>
-              <p>
-                Execute stage graphs, smoke variants, and full experiments, then
-                persist summaries, bundles, resolved configs, and lineage.
-              </p>
-            </article>
-
-            <article class="workflow-step">
-              <span class="step-index">03</span>
-              <h3>Run evaluation</h3>
-              <p>
-                EvalBot starts from benchmark selection and prechecks, explains
-                environments and weights, then reports both results and saved
-                output locations.
-              </p>
-            </article>
-
-            <article class="workflow-step">
-              <span class="step-index">04</span>
-              <h3>Search and report</h3>
-              <p>
-                PaperSearch collects related work, ReportBot produces status
-                reports and archives, and MetaMemory keeps shared context
-                persistent.
-              </p>
-            </article>
-          </div>
-        </section>
-
-        <section class="section split-section reveal">
-          <div class="split-copy">
-            <p class="eyebrow">REPOSITORY LAYOUT</p>
-            <h2>The project site itself respects the repo structure.</h2>
-            <p>
-              This public repository only contains the project page and the
-              static assets required for GitHub Pages. The working implementation
-              can stay in a separate private repository.
-            </p>
-
-            <div class="quick-actions">
-              <a
-                class="doc-card-link"
-                href="https://github.com/wujunyu687-lab/worldclaw-site/blob/main/README.md"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Open Public README
-              </a>
-              <a
-                class="doc-card-link"
-                href="https://github.com/wujunyu687-lab/worldclaw-site"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Open Site Repository
-              </a>
-            </div>
-          </div>
-
-          <div class="repo-card">
-            <div class="repo-card-head">
-              <span>worldclaw-site/</span>
-              <small>public project page</small>
-            </div>
-            <pre class="repo-tree"><code>worldclaw-site/
-  index.html
-  site/
-  README.md
-    styles.css
-    main.js
-  .gitignore</code></pre>
-          </div>
-        </section>
-
-        <section id="docs" class="section reveal">
-          <div class="section-head">
-            <p class="eyebrow">DOCS & ENTRY POINTS</p>
-            <h2>Start here to understand the public architecture fast.</h2>
-            <p>
-              This public repository does not expose the private implementation
-              docs. Instead, it points to the public overview, the site repo,
-              and the key architecture sections on this page.
-            </p>
-          </div>
-
-          <div class="docs-grid">
+          <div class="hero-actions">
             <a
-              class="doc-card"
-              href="https://github.com/wujunyu687-lab/worldclaw-site/blob/main/README.md"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span class="doc-label">Project</span>
-              <h3>Public README</h3>
-              <p>
-                Read the public-facing summary, deployment notes, and repository
-                purpose for the GitHub Pages site.
-              </p>
-            </a>
-
-            <a
-              class="doc-card"
-              href="#surfaces"
-            >
-              <span class="doc-label">Access</span>
-              <h3>Entry Surfaces</h3>
-              <p>
-                Terminal, WeChat, and Feishu are separate access surfaces that
-                route into the same execution layer.
-              </p>
-            </a>
-
-            <a
-              class="doc-card"
-              href="#modules"
-            >
-              <span class="doc-label">Modules</span>
-              <h3>Capability Layers</h3>
-              <p>
-                Review the public summary of TrainBot, EvalBot, PaperSearch, and
-                MetaBot Bridge responsibilities.
-              </p>
-            </a>
-
-            <a
-              class="doc-card"
-              href="#routing"
-            >
-              <span class="doc-label">Architecture</span>
-              <h3>Bot Topology</h3>
-              <p>
-                See how access bots, the orchestrator, and execution bots stay
-                separate as the project grows.
-              </p>
-            </a>
-
-            <a
-              class="doc-card"
-              href="#workflow"
-            >
-              <span class="doc-label">Operations</span>
-              <h3>Workflow</h3>
-              <p>
-                Follow the public high-level loop from target definition through
-                training, evaluation, search, and reporting.
-              </p>
-            </a>
-
-            <a
-              class="doc-card"
+              class="action-button action-primary"
               href="https://github.com/wujunyu687-lab/worldclaw-site"
               target="_blank"
               rel="noreferrer"
             >
-              <span class="doc-label">Repository</span>
-              <h3>Site Repository</h3>
+              Public Site Repo
+            </a>
+            <a
+              class="action-button"
+              href="https://github.com/wujunyu687-lab/worldclaw-site/blob/main/README.md"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Public README
+            </a>
+            <button
+              class="action-button"
+              type="button"
+              data-copy="https://wujunyu687-lab.github.io/worldclaw-site/"
+            >
+              Copy Site URL
+            </button>
+          </div>
+
+          <p class="hero-note">
+            This public page presents the system architecture and project scope.
+            The working implementation can remain in a separate private
+            repository.
+          </p>
+        </div>
+      </section>
+
+      <section id="abstract" class="section reveal">
+        <div class="container narrow">
+          <h2>Abstract</h2>
+          <p>
+            WorldClaw is designed as a unified workspace for project execution
+            rather than as a single-purpose repository. It connects terminal,
+            WeChat, and Feishu entry surfaces to a shared execution layer, where
+            specialized bots handle training control, benchmark evaluation,
+            paper search, and project reporting.
+          </p>
+          <p>
+            The central design goal is separation of concerns. Platform access
+            is handled by lightweight entry bots, while the actual task logic is
+            executed by dedicated internal modules. This makes the system easier
+            to maintain, easier to extend, and much less chaotic than pushing
+            every workflow into one monolithic chat-facing bot.
+          </p>
+        </div>
+      </section>
+
+      <section id="architecture" class="section reveal">
+        <div class="container">
+          <h2>System Overview</h2>
+          <div class="figure-card">
+            <div class="figure-column">
+              <p class="figure-label">Access Layer</p>
+              <div class="figure-node">
+                <strong>bin/worldclaw</strong>
+                <span>Local terminal entry</span>
+              </div>
+              <div class="figure-node">
+                <strong>metabot / metabot-2</strong>
+                <span>WeChat entry bots</span>
+              </div>
+              <div class="figure-node">
+                <strong>worldclaw-feishu</strong>
+                <span>Feishu long-connection bot</span>
+              </div>
+            </div>
+
+            <div class="figure-core">
+              <div class="figure-core-node">
+                <strong>orchestrator-bot</strong>
+                <span>planning · routing · aggregation</span>
+              </div>
+            </div>
+
+            <div class="figure-column">
+              <p class="figure-label">Execution Layer</p>
+              <div class="figure-node">
+                <strong>train-bot</strong>
+                <span>target · variant · experiment · ledger</span>
+              </div>
+              <div class="figure-node">
+                <strong>eval-bot</strong>
+                <span>benchmark entry · precheck · compare</span>
+              </div>
+              <div class="figure-node">
+                <strong>papersearch-bot</strong>
+                <span>topic search · proceedings crawl</span>
+              </div>
+              <div class="figure-node">
+                <strong>report-bot</strong>
+                <span>summary · archive · memory organization</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="stats-row">
+            <article class="stat-box">
+              <strong>3</strong>
+              <span>entry surfaces</span>
+            </article>
+            <article class="stat-box">
+              <strong>5</strong>
+              <span>core internal web bots</span>
+            </article>
+            <article class="stat-box">
+              <strong>1</strong>
+              <span>shared runtime and memory layer</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="components" class="section reveal">
+        <div class="container">
+          <h2>Core Components</h2>
+          <div class="component-grid">
+            <article class="component-card">
+              <h3>TrainBot</h3>
               <p>
-                This public repo contains only the project page and static
-                assets. The implementation repo is intentionally separate.
+                A general training control plane built around targets, variants,
+                experiments, ledgers, and lineage, instead of binding the whole
+                system to one training repository.
+              </p>
+              <ul>
+                <li>Target and experiment contracts</li>
+                <li>Variant registry with inheritance and aliases</li>
+                <li>Resolved-config persistence and lineage capture</li>
+                <li>Smoke runs, summaries, ledgers, and comparison utilities</li>
+              </ul>
+            </article>
+
+            <article class="component-card">
+              <h3>EvalBot</h3>
+              <p>
+                A benchmark-oriented execution layer that begins with entry
+                selection and prechecks, then surfaces missing environments,
+                required weights, execution steps, and saved results.
+              </p>
+              <ul>
+                <li>Benchmark entry registry</li>
+                <li>Environment and dependency validation</li>
+                <li>Weight readiness and path checks</li>
+                <li>Output location and result reporting</li>
+              </ul>
+            </article>
+
+            <article class="component-card">
+              <h3>PaperSearch</h3>
+              <p>
+                A lightweight research-operations layer for collecting recent
+                work, crawling proceedings, and converting raw results into
+                normalized outputs that are easier to reuse downstream.
+              </p>
+              <ul>
+                <li>Topic search</li>
+                <li>Conference proceedings crawl</li>
+                <li>CSV normalization and merge tools</li>
+                <li>Project-ready output organization</li>
+              </ul>
+            </article>
+
+            <article class="component-card">
+              <h3>MetaBot Bridge</h3>
+              <p>
+                The bridge layer handles IM integration, API exposure, and
+                runtime coordination. Its role is to connect the platforms to
+                the task layer, not to absorb all business logic itself.
+              </p>
+              <ul>
+                <li>WeChat and Feishu integration</li>
+                <li>Local terminal-facing API</li>
+                <li>Bot registry and routing</li>
+                <li>Runtime and memory service coordination</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="workflow" class="section reveal">
+        <div class="container narrow">
+          <h2>Operational Workflow</h2>
+          <div class="timeline">
+            <article class="timeline-item">
+              <span class="timeline-index">01</span>
+              <div>
+                <h3>Define the project contract</h3>
+                <p>
+                  Training and evaluation work are first turned into explicit
+                  targets, variants, and benchmark entries, which reduces
+                  ambiguity and makes the pipeline auditable.
+                </p>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <span class="timeline-index">02</span>
+              <div>
+                <h3>Route user requests through entry surfaces</h3>
+                <p>
+                  Terminal, WeChat, and Feishu all feed into the same execution
+                  layer, so the project can be operated from different platforms
+                  without duplicating the core logic.
+                </p>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <span class="timeline-index">03</span>
+              <div>
+                <h3>Execute specialized workflows</h3>
+                <p>
+                  The orchestrator delegates training, evaluation, paper search,
+                  and reporting to the corresponding bot instead of treating all
+                  tasks as one generic conversation loop.
+                </p>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <span class="timeline-index">04</span>
+              <div>
+                <h3>Persist outputs and memory</h3>
+                <p>
+                  Summaries, bundles, ledgers, output paths, and memory records
+                  stay connected to the same workspace, which makes iterative
+                  project work much easier to continue.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="container narrow">
+          <h2>Public Site Scope</h2>
+          <div class="notice-card">
+            <p>
+              This repository hosts the public-facing project page only. It is
+              intentionally separated from the implementation repository so the
+              architecture, workflow, and public overview can be shared without
+              exposing the working codebase, credentials, or project-specific
+              runtime configuration.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="resources" class="section reveal">
+        <div class="container">
+          <h2>Resources</h2>
+          <div class="resource-grid">
+            <a
+              class="resource-card"
+              href="https://github.com/wujunyu687-lab/worldclaw-site"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span>Repository</span>
+              <h3>Public Site Repo</h3>
+              <p>
+                Static assets for the public WorldClaw project page and GitHub
+                Pages deployment.
+              </p>
+            </a>
+
+            <a
+              class="resource-card"
+              href="https://github.com/wujunyu687-lab/worldclaw-site/blob/main/README.md"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span>Overview</span>
+              <h3>Public README</h3>
+              <p>
+                Short repository-level notes describing the role of this public
+                site and its separation from the implementation repo.
+              </p>
+            </a>
+
+            <a class="resource-card" href="#architecture">
+              <span>Section</span>
+              <h3>System Overview</h3>
+              <p>
+                A high-level view of the entry surfaces, orchestrator, and
+                specialized execution bots.
+              </p>
+            </a>
+
+            <a class="resource-card" href="#components">
+              <span>Section</span>
+              <h3>Core Components</h3>
+              <p>
+                A compact description of TrainBot, EvalBot, PaperSearch, and
+                MetaBot Bridge responsibilities.
               </p>
             </a>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
+    </main>
 
-      <footer class="site-footer">
-        <p>
-          WorldClaw is built as a project workspace, not a demo shell.
-          <span>Train. Evaluate. Search. Report. Route everything through one repo.</span>
-        </p>
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>WorldClaw Project Page</p>
         <small>
-          © <span data-year></span> WorldClaw · Designed for project-level GitHub Pages deployment.
+          © <span data-year></span> WorldClaw · Public overview site for a
+          project-level workspace.
         </small>
-      </footer>
-    </div>
+      </div>
+    </footer>
 
     <script src="./site/main.js"></script>
   </body>
